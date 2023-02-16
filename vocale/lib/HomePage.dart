@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vocale/messages.dart';
 
 import 'EvenOrOddNumberPage.dart';
 
@@ -19,12 +20,12 @@ class _MyHomePageState extends State<MyHomePage> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text("Zbyt mało liczb"),
-            content: Text("Wprowadź co najmniej 3 liczby oddzielone przecinkami."),
+            title: Text(Messages.alertTitle),
+            content: Text(Messages.alertText),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: Text("OK"),
+                child: Text(Messages.alertButton),
               ),
             ],
           );
@@ -37,10 +38,29 @@ class _MyHomePageState extends State<MyHomePage> {
 
     int? result = null;
     if (_numbers.any((element) => element is int)) {
-      if (evenCount > oddCount) {
-        result = _numbers.firstWhere((element) => element % 2 != 0);
+      if (evenCount != 0 && oddCount != 0) {
+        if (evenCount > oddCount) {
+          result = _numbers.firstWhere((element) => element % 2 != 0);
+        } else {
+          result = _numbers.firstWhere((element) => element % 2 == 0);
+        }
       } else {
-        result = _numbers.firstWhere((element) => element % 2 == 0);
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text(Messages.checkTitle),
+              content: Text(Messages.checkText),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: Text(Messages.alertButton),
+                ),
+              ],
+            );
+          },
+        );
+        return;
       }
     }
 
@@ -54,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Szukanie liczby odstającej'),
+        title: Text(Messages.title),
       ),
       body: Center(
         child: Column(
@@ -63,12 +83,12 @@ class _MyHomePageState extends State<MyHomePage> {
             TextField(
               controller: _inputController,
               keyboardType: TextInputType.number,
-              decoration: InputDecoration(hintText: 'Wprowadź liczby oddzielone przecinkami'),
+              decoration: InputDecoration(hintText: Messages.inputText, contentPadding: EdgeInsets.all(20.0)),
             ),
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: _searchForEvenOrOdd,
-              child: Text('Wyszukaj'),
+              child: Text(Messages.buttonText),
             ),
           ],
         ),
