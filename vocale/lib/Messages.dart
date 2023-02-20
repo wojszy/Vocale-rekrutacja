@@ -1,4 +1,4 @@
-class Messages {
+class MessagesText {
   static const String title = 'Searching for an outlier';
   static const String inputText = 'Enter numbers separated by commas';
   static const String buttonText = 'Search';

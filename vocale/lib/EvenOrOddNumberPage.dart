@@ -10,7 +10,7 @@ class EvenOrOddNumberPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(Messages.title),
+          title: Text(MessagesText.title),
         ),
         body: Padding(
           padding: const EdgeInsets.all(30),
@@ -18,7 +18,7 @@ class EvenOrOddNumberPage extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  Messages.resultText,
+                  MessagesText.resultText,
                   style: TextStyle(fontSize: 20),
                 ),
                 SizedBox(

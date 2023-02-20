@@ -20,12 +20,12 @@ class _MyHomePageState extends State<MyHomePage> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text(Messages.alertTitle),
-            content: Text(Messages.alertText),
+            title: Text(MessagesText.alertTitle),
+            content: Text(MessagesText.alertText),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: Text(Messages.alertButton),
+                child: Text(MessagesText.alertButton),
               ),
             ],
           );
@@ -49,12 +49,12 @@ class _MyHomePageState extends State<MyHomePage> {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text(Messages.checkTitle),
-              content: Text(Messages.checkText),
+              title: Text(MessagesText.checkTitle),
+              content: Text(MessagesText.checkText),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: Text(Messages.alertButton),
+                  child: Text(MessagesText.alertButton),
                 ),
               ],
             );
@@ -74,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(Messages.title),
+        title: Text(MessagesText.title),
       ),
       body: Center(
         child: Column(
@@ -83,12 +83,12 @@ class _MyHomePageState extends State<MyHomePage> {
             TextField(
               controller: _inputController,
               keyboardType: TextInputType.number,
-              decoration: InputDecoration(hintText: Messages.inputText, contentPadding: EdgeInsets.all(20.0)),
+              decoration: InputDecoration(hintText: MessagesText.inputText, contentPadding: EdgeInsets.all(20.0)),
             ),
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: _searchForEvenOrOdd,
-              child: Text(Messages.buttonText),
+              child: Text(MessagesText.buttonText),
             ),
           ],
         ),
