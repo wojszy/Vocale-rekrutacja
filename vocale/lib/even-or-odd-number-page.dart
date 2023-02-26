@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vocale/messages.dart';
+import 'package:vocale/messages-text.dart';
 
 class EvenOrOddNumberPage extends StatelessWidget {
   final int result;
